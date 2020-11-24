@@ -4,13 +4,10 @@
 </template>
 
 <script>
-import {onMounted, reactive,ref} from '@vue/composition-api';
+import { onMounted, reactive, ref } from "@vue/composition-api";
 export default {
-  setup(){
-
-  }
-}
-
+  setup() {},
+};
 </script>
 <style lang='scss' scoped>
 </style>

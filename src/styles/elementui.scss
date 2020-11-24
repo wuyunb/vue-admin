@@ -1,0 +1,27 @@
+
+.el-submenu .el-menu-item{
+    font-size: 14px;
+    padding-left: 45px !important;
+    &.is-active{
+        background: rgba(245,108,108,.2) !important;
+
+    }
+}
+.el-menu{
+    border-right:0
+}
+.close{
+    .el-submenu .is-opend{
+        .el-submenu__title{
+            background-color: red;
+        }
+    }
+}
+.el-menu--vertical{
+    .el-menu{background-color: red !important;}
+    .el-menu-item{line-height: 56px;}
+    .el-menu-item:hover{
+        background-color: red !important;
+    }
+
+}

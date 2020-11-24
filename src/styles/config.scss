@@ -1,3 +1,10 @@
 // 菜单宽度
 
-$navMenu:200px
+$navMenu:200px;
+
+@mixin webkit ($type,$vale) {
+    -webkit-#{$type}:$vale;
+    -moz-#{$type}:$vale;
+    -ms-#{$type}:$vale;
+    #{$type}:$vale;
+}

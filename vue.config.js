@@ -7,10 +7,22 @@ module.exports = {
     // eslint-loader 是否在保存的时候检查
     lintOnSave: false,
     productionSourceMap: false,
+    chainWebpack:(config)=>{
+        const svgRule = config.module.rule("svg");     
+        svgRule.uses.clear();     
+        svgRule       
+          .use("svg-sprite-loader")       
+          .loader("svg-sprite-loader")       
+          .options({         
+            symbolId: "icon-[name]",         
+            include: ["./src/icons"]       
+          }); 
+    },
     configureWebpack: (config) => {
         config.resolve = { // 配置解析别名
             extensions: ['.js', '.json', '.vue'],
             alias: {
+                'vue':'vue/dist/vue.js',      // runtime 模版
                 '@': path.resolve(__dirname, './src'),
                 '@c': path.resolve(__dirname, './src/components'),
             }
@@ -40,7 +52,7 @@ module.exports = {
         hotOnly: false,
         proxy: {
             '/api':{
-                target:'http://www.web-jshtml.cn/productapi',
+                target:'http://www.web-jshtml.cn/productapi/token',
                 changeOrigin:true,
                 pathRewrite:{
                     '^/api':''

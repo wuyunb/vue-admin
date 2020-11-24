@@ -46,7 +46,7 @@ import sha1 from 'js-sha1';
 export default {
   setup(props,{root,refs}) {
     var code = (rule, value, callback) => {
-        ruleForm.code = stripscript(value)
+        // ruleForm.code = stripscript(value)
         value =ruleForm.code
           let reg = /^[0-9a-zA-Z]*$/g
         if (!value) {
@@ -202,12 +202,19 @@ export default {
      * 登录
      * */ 
     const login =((data)=>{
-       Login(data).then((res)=>{
-         if (res.resCode === 0 ){
+      root.$store.dispatch('app/login',data).then((res)=>{
+        if (res.resCode === 0 ){
            root.$router.push({path:'/console'})
+           root.$message.success(res.message)
          }
-         root.$message.success(res.message)
-       })
+        console.log(res)
+      })
+      //  Login(data).then((res)=>{
+      //    if (res.resCode === 0 ){
+      //      root.$router.push({path:'/console'})
+      //    }
+      //    
+      //  })
     });
     /**
      * 注册
